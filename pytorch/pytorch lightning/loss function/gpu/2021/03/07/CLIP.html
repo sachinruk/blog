@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Multilingual CLIP with Huggingface + PyTorch Lightning 🤗 ⚡ | fastpages</title>
+<title>Multilingual CLIP with Huggingface + PyTorch Lightning 🤗 ⚡ | Sachin’s Blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Multilingual CLIP with Huggingface + PyTorch Lightning 🤗 ⚡" />
 <meta name="author" content="Sachin Abeywardana" />
@@ -13,13 +13,13 @@
 <meta property="og:description" content="Training OpenAI’s CLIP on google colab" />
 <link rel="canonical" href="https://sachinruk.github.io/blog/pytorch/pytorch%20lightning/loss%20function/gpu/2021/03/07/CLIP.html" />
 <meta property="og:url" content="https://sachinruk.github.io/blog/pytorch/pytorch%20lightning/loss%20function/gpu/2021/03/07/CLIP.html" />
-<meta property="og:site_name" content="fastpages" />
+<meta property="og:site_name" content="Sachin’s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-03-07T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"Training OpenAI’s CLIP on google colab","url":"https://sachinruk.github.io/blog/pytorch/pytorch%20lightning/loss%20function/gpu/2021/03/07/CLIP.html","@type":"BlogPosting","headline":"Multilingual CLIP with Huggingface + PyTorch Lightning 🤗 ⚡","dateModified":"2021-03-07T00:00:00-06:00","datePublished":"2021-03-07T00:00:00-06:00","author":{"@type":"Person","name":"Sachin Abeywardana"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sachinruk.github.io/blog/pytorch/pytorch%20lightning/loss%20function/gpu/2021/03/07/CLIP.html"},"@context":"https://schema.org"}</script>
+{"url":"https://sachinruk.github.io/blog/pytorch/pytorch%20lightning/loss%20function/gpu/2021/03/07/CLIP.html","@type":"BlogPosting","headline":"Multilingual CLIP with Huggingface + PyTorch Lightning 🤗 ⚡","dateModified":"2021-03-07T00:00:00-06:00","datePublished":"2021-03-07T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sachinruk.github.io/blog/pytorch/pytorch%20lightning/loss%20function/gpu/2021/03/07/CLIP.html"},"author":{"@type":"Person","name":"Sachin Abeywardana"},"description":"Training OpenAI’s CLIP on google colab","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://sachinruk.github.io/blog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://sachinruk.github.io/blog/feed.xml" title="Sachin's Blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 
 <script>
@@ -54,7 +54,7 @@ window.onload = wrap_img;
 </head>
 <body><header class="site-header">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">fastpages</a><nav class="site-nav">
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Sachin&#39;s Blog</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
         <label for="nav-trigger">
           <span class="menu-icon">
@@ -504,6 +504,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#Train" aria-hidden="true"><span class="octicon octicon-link"></span></a>Train<a class="anchor-link" href="#Train"> </a>
 </h2>
 <p>Training is straight forward as show in the five lines below. Using 16 bit precision almost halved the training time from 16 minutes to 9 minutes per epoch. Notice how easy it was to add half precision training and gradient clipping.</p>
+<p>Also one thing to note is that I could not get this working on TPUs so if anyone knows what I need to adjust, please let me know. Setting <code>tpu_cores=8</code> just did not work.</p>
 
 </div>
 </div>
@@ -641,10 +642,10 @@ Using native 16bit precision.
 
 
 
-<div id="01ca59a7-6331-4344-9b03-bed7dd0478db"></div>
+<div id="d4bd66b3-66df-40cd-8295-0d943c3bfcfe"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#01ca59a7-6331-4344-9b03-bed7dd0478db');
+var element = $('#d4bd66b3-66df-40cd-8295-0d943c3bfcfe');
 
         (async () => {
             const url = new URL(await google.colab.kernel.proxyPort(6006, {'cache': true}));
@@ -679,73 +680,6 @@ var element = $('#01ca59a7-6331-4344-9b03-bed7dd0478db');
 </div>
 </div>
 </div>
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cuda"</span><span class="p">)</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span>
-
-<span class="n">vision_encoder</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">vision_encoder</span>
-<span class="n">vision_encoder</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-<span class="n">vision_encoder</span> <span class="o">=</span> <span class="n">vision_encoder</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-
-<span class="n">image_embeds</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">valid_dl</span><span class="p">):</span>
-        <span class="n">image_embeds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vision_encoder</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)))</span>
-
-<span class="n">image_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">image_embeds</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-    
-
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">valid_dl</span><span class="p">))</span>
-<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tokenizer</span>
-<span class="n">caption_encoder</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">caption_encoder</span>
-<span class="n">caption_encoder</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-<span class="n">caption_encoder</span> <span class="o">=</span> <span class="n">caption_encoder</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-
-<span class="n">text_dev</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tokenizer</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
-<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-    <span class="n">caption_embed</span> <span class="o">=</span> <span class="n">caption_encoder</span><span class="p">(</span><span class="n">text_dev</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-    
-
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1293,11 +1227,11 @@ var element = $('#01ca59a7-6331-4344-9b03-bed7dd0478db');
         </p>
       </div>
       <div class="footer-col">
-        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+        <p>Deep Learning and other random musings by Sachin Abeywardana</p>
       </div>
     </div>
 
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/sachinruk" title="sachinruk"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/sachinabeywardana" title="sachinabeywardana"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/sachinabey" title="sachinabey"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li><li><a rel="me" href="https://www.youtube.com/sachinabey" title="sachinabey"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#youtube"></use></svg></a></li></ul>
 </div>
 
   </div>
