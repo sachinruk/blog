@@ -33,6 +33,116 @@
         
     
   
+    
+        ,"post3": {
+            "title": "Docker for Data Science",
+            "content": "Docker for Data Science . Docker is a tool that simplifies the installation process for software engineers. Coming from a statistics background I used to care very little about how to install software and would occasionally spend a few days trying to resolve system configuration issues. Enter the god-send Docker almighty. . Think of Docker as a light virtual machine (I apologise to the Docker gurus for using that term). Its underlying philosophy is that if it works on my machine it will work on yours. . What’s in it for Data Scientists . Time: The amount of time that you save on not installing packages in itself makes this framework worth it. | Reproducible Research: I think of Docker as akin to setting the seed in a report. This makes sure that the analysis that you are generating will run on any other analysts machine. | How Does it Work? . Docker employs the concept of (reusable) layers. So whatever line that you write inside the Dockerfile is considered a layer. For example you would usually start with: . FROM ubuntu RUN apt-get install python3 . This Dockerfile would install python3 (as a layer) on top of the Ubuntu layer. . What you essentially do is for each project you write all the apt-get install, pip install etc. commands into your Dockerfile instead of executing it locally. . I recommend reading the tutorial on https://docs.docker.com/get-started/ to get started on Docker. The learning curve is minimal (2 days work at most) and the gains are enormous. . Dockerhub . Lastly Dockerhub deserves a special mention. Personally Dockerhub is what makes Docker truly powerful. It’s what github is to git, a open platform to share your Docker images. . My Docker image for Machine Learning and data science is availale here: https://hub.docker.com/r/sachinruk/ml_class/ .",
+            "url": "https://sachinruk.github.io/blog/blog/2017/08/24/Docker-for-Data-Science.html",
+            "relUrl": "/blog/2017/08/24/Docker-for-Data-Science.html",
+            "date": " • Aug 24, 2017"
+        }
+        
+    
+  
+    
+        ,"post4": {
+            "title": "DeepSchool.io",
+            "content": "DeepSchool.io . NodeSchool is one of the most inclusive software communities that I have come across. What I liked about it the most is its emphasis on writing code. There are so many meetups that I have been to where I simply listen to talks and go home without much of a takehome message. . www.DeepSchool.io is an open-source, community based project to teach the A-Z of Deep Learning (DL). This project came out of a weekly class that I did at Arbor Networks where I work as a Data Scientist. . Personally I come from a background where I did a PhD in Machine Learning. However, with the development of tools such as Keras, DL has become a lot more accessible to the general community. . Even with these available tools teaching Deep Learning can be quite difficult. The first lesson I did was a complete train wreck. I had forgotten where I started and jumped straight into a multi layered Deep Net. I Took for granted that people would understand what a loss function is, and what regression vs logisitic regression is. . Conversely I did not want to spend too much time on the mathematics either. I wanted to create something that would get people tackling DL problems fast instead of diving too deep into the theory. I spent 6 months or so on Andrew Ngs DL course that did go through the theory. This unfortunately did not equip me with the tools necessary towards actually being comfortable with using DL in any meaningful way. The goal is to focus on the bigger picture of what you can do with DL. . Goals . Make Deep Learning easier (minimal code). | Minimise required mathematics. | Make it practical (runs on laptops). | Open Source Deep Learning Learning. | Grow a collaborating practical community around DL. | The assumed knowledge is that you are able to code in Python. I make all code available in Jupyter Notebooks for the sole reason being that you can interact with it. Running on a single python script decreases this interactivity. . I also use Docker containers along with Docker-compose so that I don’t have to deal with installation issues. This tends to take up upwards of half an hour at some workshops. Mind you, the current container that I have put up uses 3GB of space. . Call for Contributions . There is still much to do with Deep School. These are some of the most important requirements in order of importance: . Use the tutorials! | Help with documenting tutorials (there are parts I could have explained better). | Contribute tutorials. At the time of writing I am yet to do a LSTM tutorial. Furthermore I am yet to provide the more advanced tutorials such as Attention Networks, Generative Adversarial Networks, Reinforcement Learning etc. | Help me setup a website/ forum. I have limited experience with websites. It would be good to provide a NodeSchool.io style webpage so that we could spread the message. |",
+            "url": "https://sachinruk.github.io/blog/blog/2017/07/04/DeepSchool.io.html",
+            "relUrl": "/blog/2017/07/04/DeepSchool.io.html",
+            "date": " • Jul 4, 2017"
+        }
+        
+    
+  
+    
+        ,"post5": {
+            "title": "Keras LSTMs",
+            "content": "Keras has been one of the really powerful Deep Learning libraries that allow you to have a Deep Net running in a few lines of codes. Best part, don’t worry about the math. In the following videos you will find how to implement a popular Recursive Neural Net (RNN) called Long Short Term Memory RNNs (LSTM). . Note: You could easily replace the LSTM units with Gated Recurrent Units (GRU) with the same function call. . Source code: https://github.com/sachinruk/PyData_Keras_Talk/blob/master/cosine_LSTM.ipynb . FAQ: . Why do we need a Dense Layer? The output is still one dimensional (y) and therefore the 32 hidden layers need to be projected down to one. Hence the dense layer is used. | How do you decide number of layers and number of nodes in each layer? Personally for me this is trial and error. Generally larger number of layers (deeper) is better than going wide (more nodes). But I usually limit myself to 5 at most unless there is a truly large dataset (100MB+) | References . To understand the maths behind LSTM: http://colah.github.io/posts/2015-08-Understanding-LSTMs/ | For another guide to Keras LSTMs: http://machinelearningmastery.com/time-series-prediction-lstm-recurrent-neural-networks-python-keras/ | If you are still confused (try my stackoverflow post): http://stackoverflow.com/questions/38714959/understanding-keras-lstms |",
+            "url": "https://sachinruk.github.io/blog/blog/2016/10/20/Keras-LSTM.html",
+            "relUrl": "/blog/2016/10/20/Keras-LSTM.html",
+            "date": " • Oct 20, 2016"
+        }
+        
+    
+  
+    
+        ,"post6": {
+            "title": "Deep Learning Quantile Regression -  Keras",
+            "content": "The loss function is simple as doing the following. Which is simply the pin-ball loss function. . def tilted_loss(q,y,f): e = (y-f) return K.mean(K.maximum(q*e, (q-1)*e), axis=-1) . When it comes to compiling the neural network, just simply do: . model.compile(loss=lambda y,f: tilted_loss(0.5,y,f), optimizer=&#39;adagrad&#39;) . I chose 0.5 which is the median, but you can try whichever quantile that you are after. Word of caution, which applies to any quantile regression method; you may find that the quantile output might be extreme/ unexpected when you take extreme quantiles (eg. 0.001 or 0.999). . A more complete working example can be found here. .",
+            "url": "https://sachinruk.github.io/blog/blog/2016/10/16/Quantile-Regression.html",
+            "relUrl": "/blog/2016/10/16/Quantile-Regression.html",
+            "date": " • Oct 16, 2016"
+        }
+        
+    
+  
+    
+        ,"post7": {
+            "title": "XgBoost - Machine Learning made EASY!",
+            "content": "One of the machine learning frameworks that has been exploding on the Kaggle scene has been Xgboost. In my personal experience it has been an extremely powerful machine learning algorithm, beating random forests on most problems I’ve played around with. . The following video is a quick introduction to XgBoost. .",
+            "url": "https://sachinruk.github.io/blog/blog/2016/08/08/XgBoost.html",
+            "relUrl": "/blog/2016/08/08/XgBoost.html",
+            "date": " • Aug 8, 2016"
+        }
+        
+    
+  
+    
+        ,"post8": {
+            "title": "Reversible jump MCMC",
+            "content": "Reversible jump MCMC . Reversible jump MCMC is a Bayesian algorithm to infer the number of components/ clusters from a set of data. For this illustration we shall consider a two component model at most. . Model . The likelihoods can be represented as: begin{align} p(y_i| lambda_{11},k=1)=&amp; lambda_{11} exp(- lambda_{11}y_i) p(y_i| lambda_{12}, lambda_{22},k=2,z_i)=&amp; prod_j ( lambda_{j2} exp(- lambda_{j2}y_i))^{1(z_i=j)} end{align} . The priors on the latent variables are: . begin{align} p( lambda_{jk}) propto &amp; frac{1}{ lambda_{jk}} qquad lambda_{jk} in[a,b] p(z_i=1)=&amp; pi p( pi) = &amp; text{Dir}( alpha) p(k=j)= &amp; 1/K end{align} . Jumping dimensions . We need to consider a Metropolis-Hastings (MH) step to consider going from one component to two components. The MH step in general is as follows: . begin{align} alpha = &amp; frac{p(y, theta_2^{t+1})}{p(y, theta_1^t)} frac{q( theta_1^t| theta_2^{t+1})}{q( theta_2^{t+1}| theta_1^{t})} A = &amp; text{min} left(1, alpha right) end{align} . where, . begin{align} p(y_i, theta_2)=&amp; p(y| lambda_{12}, lambda_{22}, pi)p( lambda_{12})p( lambda_{22})p( pi) =&amp; pi p(y_i| lambda_{12})+(1- pi) p(y_i| lambda_{22}) end{align} . Jumping from 1 dim to 2 . In this case let the parameters θ={∪jλjk,k,π} theta= { cup_j lambda_{jk},k, pi }θ={∪j​λjk​,k,π} . As we can let the proposal distribution be anything, we let q(θ1→θ2)q( theta_1 to theta_2)q(θ1​→θ2​) as follows: begin{align} q( lambda_{j2}, pi,k=2|k=1, lambda_{11})=q( lambda_{j2}|k=2, lambda_{11})q( pi|k=2)q(k=2|k=1) end{align} . We let the proposal q(k=2∣k=1)=1q(k=2 vert k=1)=1q(k=2∣k=1)=1. We also have the following dimensional jump: . begin{align} mu_1, mu_2 sim &amp; U(0,1) lambda_{12}=&amp; lambda_{11} frac{ mu_1}{1- mu_1} lambda_{22}=&amp; lambda_{11} frac{1- mu_1}{ mu_1} pi=&amp; mu_2 end{align} . Thus, in order to find the distribution (q( lambda_{j2} vert k=2, lambda_{11})) we use the change of variable identity that q(λj2∣k=2,λ11)=q(μ1)∣J∣q( lambda_{j2} vert k=2, lambda_{11})=q( mu_1) vert J vertq(λj2​∣k=2,λ11​)=q(μ1​)∣J∣ where, JJJ is the jacobian ∂(λ11,μ1)∂(λ12,λ22) frac{ partial( lambda_{11}, mu_1)}{ partial( lambda_{12}, lambda_{22})}∂(λ12​,λ22​)∂(λ11​,μ1​)​. The Jacobian determinant is found to be μ1(1−μ1)2λ11 frac{ mu_1(1- mu_1)}{2 lambda_{11}}2λ11​μ1​(1−μ1​)​ while q(μ1)=q(μ2)=1q( mu_1)=q( mu_2)=1q(μ1​)=q(μ2​)=1 since they are sampled from standard uniform distributions. Also (q( mu_2)=q( pi vert k=2)). . Since we need the ratio of proposed states ( frac{q( theta_1^t | theta_2^{t+1})}{q( theta_2^{t+1} | theta_1^{t})} ) we are also required to find ( q( lambda_{11},k=2 vert lambda_{2j}, pi,k=1) = q( lambda_{11} vert lambda_{2j},k=2) q(k=1 vert k=2) ). We again take ( q(k=1 vert k=2)=1 ). (q( lambda_{11}= sqrt{ lambda_{12} lambda_{22}})=1) | . Jumping from 2 to 1 . The MH step is conducted using the reciprocal of $ alpha$ in the equation above. . RJMCMC Algorithm .",
+            "url": "https://sachinruk.github.io/blog/blog/2015/10/20/Reversible-Jump-MCMC.html",
+            "relUrl": "/blog/2015/10/20/Reversible-Jump-MCMC.html",
+            "date": " • Oct 20, 2015"
+        }
+        
+    
+  
+    
+        ,"post9": {
+            "title": "Chinese Restuarant Process",
+            "content": "In this instance we generate the parameters θk theta_kθk​ from N(0,3I) mathcal{N}( mathbf{0},3 mathbf{I})N(0,3I). The data is generated from N(θk,0.1I) mathcal{N}( theta_k,0.1 mathbf{I})N(θk​,0.1I). Where kkk is the table. Table allocation is the main part of the CRP which is determined by: begin{align} k= begin{cases} text{new table } &amp; text{with prob = } frac{ alpha}{ alpha+n-1} text{table k } &amp; text{with prob = } frac{n_k}{ alpha+n-1} end{cases} end{align} where nkn_knk​ is the number of customers at table kkk. . The associated ipython notebook is located here. .",
+            "url": "https://sachinruk.github.io/blog/blog/2015/10/09/Chinese-Restaurant-Process.html",
+            "relUrl": "/blog/2015/10/09/Chinese-Restaurant-Process.html",
+            "date": " • Oct 9, 2015"
+        }
+        
+    
+  
+    
+        ,"post10": {
+            "title": "von Mises-Fisher Distribution",
+            "content": "The von Mises Fisher Distribution is a multivariate distribution on a hyper sphere. I have decided to share the expectation and covariance of the vMF distribution. The Wikipedia page doesn’t give much info of this distribution. . Expectation of vMF distribution . Let (C ) be the normalising constant. . ∫∣∣x∣∣2=1exp⁡(κμTx) dx=(2π)d/2−1Id/2−1(κ)κd/2−1=C int_{|| mathbf{x}||_2=1} exp( kappa mathbf{ mu}^T mathbf{x}) ,d mathbf{x} = frac{(2 pi)^{d/2-1} I_{d/2-1}( kappa)}{ kappa^{d/2-1}}=C∫∣∣x∣∣2​=1​exp(κμTx)dx=κd/2−1(2π)d/2−1Id/2−1​(κ)​=C . Let ( mathbf{y}= kappa mathbf{ mu} ). Therefore ( kappa= sqrt{ mathbf{y}^T mathbf{y}} ). . begin{align} frac{d kappa}{d mathbf{y}}= frac{1}{2} frac{ mathbf{y}}{ sqrt{ mathbf{y}^T mathbf{y}}}= frac{ kappa mathbf{ mu}}{ kappa}= mathbf{ mu} end{align} . begin{align} int mathbf{x} exp( mathbf{y}^T mathbf{x}) d mathbf{x} =&amp; frac{d}{d mathbf{y}} int exp( mathbf{y}^T mathbf{x}) d mathbf{x} =&amp; frac{d kappa}{d mathbf{y}} frac{d}{d kappa} int exp( mathbf{y}^T mathbf{x}) d mathbf{x} =&amp; mathbf{ mu} frac{d}{d kappa} frac{(2 pi)^{d/2-1} I_{d/2-1}( kappa)}{ kappa^{d/2-1}} =&amp; mathbf{ mu} left( frac{I&#39;{d/2-1}( kappa)}{I{d/2-1}( kappa)} - frac{d/2-1}{ kappa} right) frac{(2 pi)^{d/2-1} I_{d/2-1}( kappa)}{ kappa^{d/2-1}} E( mathbf{x}) =&amp; frac{ int mathbf{x} exp( mathbf{y}^T mathbf{x}) d mathbf{x}}{ int exp( mathbf{y}^T mathbf{x}) d mathbf{x}} = mathbf{ mu} left( frac{I&#39;{d/2-1}( kappa)}{I{d/2-1}( kappa)} - frac{d/2-1}{ kappa} right) E( mathbf{x}) =&amp; frac{I_{d/2}( kappa)}{I_{d/2-1}( kappa)} mathbf{ mu} end{align} . This is an interesting result because its saying that the mean of a von Mises-Fisher distribution is NOT ( mathbf{ mu} ). It is infact multiplied a constant Id/2(κ)Id/2−1(κ) frac{I_{d/2}( kappa)}{I_{d/2-1}( kappa)}Id/2−1​(κ)Id/2​(κ)​ which is between ((0,1) ). If you think about a uniformly distributed vMF this makes sense ( ( kappa to 0 )). If we average all those vectors pointing in different directions it averages very close to 0. This whole ‘averaging’ of unit vectors is what makes the expected value not equal ( mathbf{ mu} ) but a vector pointing in the same direction but smaller in length. . ##Covariance of von Mises-Fisher Distribution . Using the same differential approach we can find E(xxT)E( mathbf{xx}^T)E(xxT) and hence the covariance by using the identity cov(x,x)=E(xxT)−E(x)E(x)Tcov( mathbf{x}, mathbf{x})=E( mathbf{xx}^T)-E( mathbf{x})E( mathbf{x})^Tcov(x,x)=E(xxT)−E(x)E(x)T. Hence the covariance is, . begin{align} frac{h( kappa)}{ kappa} mathbf{I}+ left(1-2 frac{ nu+1}{ kappa}h( kappa)-h( kappa)^2 right) mathbf{ mu} mathbf{ mu}^T end{align} . where h(κ)=Iν+1(κ)Iν(κ)h( kappa)= frac{I_{ nu+1}( kappa)}{I_{ nu}( kappa)}h(κ)=Iν​(κ)Iν+1​(κ)​ and ν=d/2−1 nu=d/2-1ν=d/2−1. .",
+            "url": "https://sachinruk.github.io/blog/blog/2015/08/10/von-Mises-Fisher.html",
+            "relUrl": "/blog/2015/08/10/von-Mises-Fisher.html",
+            "date": " • Aug 10, 2015"
+        }
+        
+    
+  
+    
+        ,"post11": {
+            "title": "Sample Variance",
+            "content": "People often question why is there a “n-1” term when I calculate the variance. Why not divide through by “n”. Most stats courses dismiss this question by saying, “oh, that’s because you lose a degree of freedom”. What is a degree of freedom. In the video below we ignore this notion of degree of freedom and answer where the “n-1” came from when calculating sample variance. .",
+            "url": "https://sachinruk.github.io/blog/blog/2015/08/06/Sample-Variance.html",
+            "relUrl": "/blog/2015/08/06/Sample-Variance.html",
+            "date": " • Aug 6, 2015"
+        }
+        
+    
+  
+    
+        ,"post12": {
+            "title": "Normal Distribution",
+            "content": "No stats blog would be complete without a discussion of the Gaussian distribution. In the following video I discuss how to obtain the mean and variance of a Gaussian. You do need some knowledge of integration. . Oh, and this is a statisticians “hello world”. .",
+            "url": "https://sachinruk.github.io/blog/blog/2015/08/02/Normal-Distribution.html",
+            "relUrl": "/blog/2015/08/02/Normal-Distribution.html",
+            "date": " • Aug 2, 2015"
+        }
+        
+    
+  
 
   
   

@@ -4,18 +4,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Sachin’s Blog | Deep Learning and other random musings by Sachin Abeywardana</title>
+<title>Docker for Data Science | Sachin’s Blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Sachin’s Blog" />
+<meta property="og:title" content="Docker for Data Science" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Deep Learning and other random musings by Sachin Abeywardana" />
-<meta property="og:description" content="Deep Learning and other random musings by Sachin Abeywardana" />
-<link rel="canonical" href="https://sachinruk.github.io/blog/" />
-<meta property="og:url" content="https://sachinruk.github.io/blog/" />
+<meta name="description" content="Simplifying the Installation Process." />
+<meta property="og:description" content="Simplifying the Installation Process." />
+<link rel="canonical" href="https://sachinruk.github.io/blog/blog/2017/08/24/Docker-for-Data-Science.html" />
+<meta property="og:url" content="https://sachinruk.github.io/blog/blog/2017/08/24/Docker-for-Data-Science.html" />
 <meta property="og:site_name" content="Sachin’s Blog" />
-<meta property="og:image" content="https://sachinruk.github.io/blog/images/logo.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-08-24T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://sachinruk.github.io/blog/","@type":"WebSite","headline":"Sachin’s Blog","image":"https://sachinruk.github.io/blog/images/logo.png","name":"Sachin’s Blog","description":"Deep Learning and other random musings by Sachin Abeywardana","@context":"https://schema.org"}</script>
+{"url":"https://sachinruk.github.io/blog/blog/2017/08/24/Docker-for-Data-Science.html","@type":"BlogPosting","headline":"Docker for Data Science","dateModified":"2017-08-24T00:00:00-05:00","datePublished":"2017-08-24T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://sachinruk.github.io/blog/blog/2017/08/24/Docker-for-Data-Science.html"},"description":"Simplifying the Installation Process.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://sachinruk.github.io/blog/feed.xml" title="Sachin's Blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -67,98 +68,61 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><p>This site is built with <a href="https://github.com/fastai/fastpages">fastpages</a>, An easy to use blogging platform with extra features for Jupyter Notebooks.</p>
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-<p><img src="/blog/images/blog_banner.png" alt="" title="https://github.com/fastai/fastpages" /></p>
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Docker for Data Science</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2017-08-24T00:00:00-05:00" itemprop="datePublished">
+        Aug 24, 2017
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
 
-<h1 id="posts">Posts</h1>
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#blog">blog</a>
+        
+      
+      </p>
+    
 
+    </header>
 
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="docker-for-data-science">Docker for Data Science</h1>
 
-  
+<p>Docker is a tool that simplifies the installation process for software engineers. Coming from a statistics background I used to care very little about how to install software and would occasionally spend a few days trying to resolve system configuration issues. Enter the god-send Docker almighty.</p>
 
-  <!-- Hide posts if front matter flag hide:true -->
-  
-  
+<p>Think of Docker as a light virtual machine (I apologise to the Docker gurus for using that term). Its <strong>underlying philosophy is that if it works on my machine it will work on yours</strong>.</p>
 
-  <!-- Sort posts by rank, then date -->
-  
-  
-  
+<h2 id="whats-in-it-for-data-scientists">What’s in it for Data Scientists</h2>
+<ol>
+  <li>Time: The amount of time that you save on not installing packages in itself makes this framework worth it.</li>
+  <li><strong>Reproducible Research</strong>: I think of Docker as akin to setting the seed in a report. This makes sure that the analysis that you are generating will run on any other analysts machine.</li>
+</ol>
 
- 
-  
+<h2 id="how-does-it-work">How Does it Work?</h2>
+<p>Docker employs the concept of (reusable) layers. So whatever line that you write inside the <code class="language-plaintext highlighter-rouge">Dockerfile</code> is considered a layer. For example you would usually start with:</p>
+<pre><code class="language-Dockerfile">FROM ubuntu
+RUN apt-get install python3
+</code></pre>
+<p>This Dockerfile would install <code class="language-plaintext highlighter-rouge">python3</code> (as a layer) on top of the <code class="language-plaintext highlighter-rouge">Ubuntu</code> layer.</p>
 
-   <!-- Assemble final sorted posts array -->
-  
-  <ul class="post-list"><li><h3>
-    <a class="post-link" href="/blog/pytorch/pytorch%20lightning/loss%20function/gpu/2021/03/07/CLIP.html">
-    Multilingual CLIP with Huggingface + PyTorch Lightning 🤗 ⚡
-    </a>
-</h3><p class="post-meta-description">Training OpenAI's CLIP on google colab</p><p class="post-meta">Mar 7, 2021</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/tensorflow/learning%20rate/2021/02/15/Tensorflow-Learning-Rate-Finder.html">
-    Tensorflow Learning Rate Finder
-    </a>
-</h3><p class="post-meta-description">Using Callbacks to get Optimal Learning Rate</p><p class="post-meta">Feb 15, 2021</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/pytorch/loss%20function/2020/11/28/focal-loss.html">
-    Focal Loss for Multi-class Classification
-    </a>
-</h3><p class="post-meta-description">Extending normal Focal Loss</p><p class="post-meta">Nov 28, 2020</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/blog/2017/08/24/Docker-for-Data-Science.html">
-    Docker for Data Science
-    </a>
-</h3><p class="post-meta">Aug 24, 2017</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/blog/2017/07/04/DeepSchool.io.html">
-    DeepSchool.io
-    </a>
-</h3><p class="post-meta">Jul 4, 2017</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/blog/2016/10/20/Keras-LSTM.html">
-    Keras LSTMs
-    </a>
-</h3><p class="post-meta">Oct 20, 2016</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/blog/2016/10/16/Quantile-Regression.html">
-    Deep Learning Quantile Regression -  Keras
-    </a>
-</h3><p class="post-meta">Oct 16, 2016</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/blog/2016/08/08/XgBoost.html">
-    XgBoost - Machine Learning made EASY!
-    </a>
-</h3><p class="post-meta">Aug 8, 2016</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/blog/2015/10/20/Reversible-Jump-MCMC.html">
-    Reversible jump MCMC
-    </a>
-</h3><p class="post-meta">Oct 20, 2015</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/blog/2015/10/09/Chinese-Restaurant-Process.html">
-    Chinese Restuarant Process
-    </a>
-</h3><p class="post-meta">Oct 9, 2015</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/blog/2015/08/10/von-Mises-Fisher.html">
-    von Mises-Fisher Distribution
-    </a>
-</h3><p class="post-meta">Aug 10, 2015</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/blog/2015/08/06/Sample-Variance.html">
-    Sample Variance
-    </a>
-</h3><p class="post-meta">Aug 6, 2015</p>
-</li><li><h3>
-    <a class="post-link" href="/blog/blog/2015/08/02/Normal-Distribution.html">
-    Normal Distribution
-    </a>
-</h3><p class="post-meta">Aug 2, 2015</p>
-</li></ul>
+<p>What you essentially do is for each project you write all the <code class="language-plaintext highlighter-rouge">apt-get install</code>, <code class="language-plaintext highlighter-rouge">pip install</code> etc. commands into your Dockerfile instead of executing it locally.</p>
 
-    </div>
+<p>I recommend reading the tutorial on https://docs.docker.com/get-started/ to get started on Docker. The <strong>learning curve is minimal</strong> (2 days work at most) and the gains are enormous.</p>
+
+<h2 id="dockerhub">Dockerhub</h2>
+<p>Lastly Dockerhub deserves a special mention. Personally Dockerhub is what makes Docker truly powerful. It’s what github is to git, a open platform to share your Docker images.</p>
+
+<p>My Docker image for Machine Learning and data science is availale here: https://hub.docker.com/r/sachinruk/ml_class/</p>
+
+  </div><a class="u-url" href="/blog/blog/2017/08/24/Docker-for-Data-Science.html" hidden></a>
+</article>
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/blog/"></data>
