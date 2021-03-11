@@ -24,7 +24,8 @@ $$
 
 Let \\(\mathbf{y}=\kappa\mathbf{\mu}\\). Therefore \\(\kappa=\sqrt{\mathbf{y}^T\mathbf{y}}\\).
 
-$$ \begin{align}
+$$ 
+\begin{align}
 \frac{d\kappa}{d\mathbf{y}}=\frac{1}{2}\frac{\mathbf{y}}{\sqrt{\mathbf{y}^T\mathbf{y}}}=\frac{\kappa\mathbf{\mu}}{\kappa}=\mathbf{\mu}
 \end{align} 
 $$
