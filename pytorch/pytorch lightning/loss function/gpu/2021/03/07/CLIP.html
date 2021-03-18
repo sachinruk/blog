@@ -102,7 +102,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      8 min read
     
 </span></p>
 
@@ -170,6 +170,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://i.imgur.com/OxltVjB.png" alt="CLIP"></p>
 <p>This is a walkthrough of training <a href="https://openai.com/blog/clip/">CLIP</a> by OpenAI. CLIP was designed to put both images and text into a new projected space such that they can map to each other by simply looking at dot products.</p>
 <p>Traditionally training sets like imagenet only allowed you to map images to a single class (and hence one word). This method allows you to map text to images, but can also be used to map images to text if the need arises.</p>
 <p>This particular blog however is specifically how we managed to train this on colab GPUs using huggingface transformers and pytorch lightning.</p>
@@ -664,10 +665,10 @@ Using native 16bit precision.
 
 
 
-<div id="99a0e16f-e4a8-4ee0-82b5-4c7a836f71ca"></div>
+<div id="217c27a1-879a-4624-aec2-4f4d0697c2a0"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#99a0e16f-e4a8-4ee0-82b5-4c7a836f71ca');
+var element = $('#217c27a1-879a-4624-aec2-4f4d0697c2a0');
 
         (async () => {
             const url = new URL(await google.colab.kernel.proxyPort(6006, {'cache': true}));
@@ -742,14 +743,6 @@ var element = $('#99a0e16f-e4a8-4ee0-82b5-4c7a836f71ca');
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>draw_result(i, similarity_matrix)</code> is a convenience function that takes the i-th caption and the similarity matrix, and plots the five closest images, along with the true image. The similarity between the caption and the image is shown in the title. The caption is printed first.</p>
 <p>The histogram show the similarity of the caption to all images as a histogram.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Most of the images below are of humans.</p>
 
 </div>
 </div>
